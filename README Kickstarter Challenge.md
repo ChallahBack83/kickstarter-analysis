@@ -12,7 +12,7 @@ First, I took some time to explore and understand the full scope of the Kickstar
 
 After a general look at the overall Kickstarter data, I narrowed my focus to the **theater** parent category by separating the **category/subcategory** column using the "Convert Text to Columns Wizard". By doing so, I could generate pivot tables and charts to visualize the data for individual categories and subcategories. In this case, I specifically focused on **theater** and **plays** since our client's campaign falls in this group.
 
-![Category/Subcategory Screenshot](../../../../../../../../c:/Users/mered/OneDrive/Documents/Bootcamp%20Classwork/1%20Module/Crowdfunding%20Analysis/resources/Text_to_Columns.png)
+![Category/Subcategory Separation](https://github.com/ChallahBack83/kickstarter-analysis/blob/main/resources/Text_to_Columns.png)
 
 ### Analysis of Outcomes Based on Launch Date
 
