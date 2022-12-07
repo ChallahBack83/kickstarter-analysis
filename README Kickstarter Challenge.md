@@ -19,7 +19,7 @@ After a general look at the overall Kickstarter data, I narrowed my focus to the
 
 Our client wants to know if there is a time of year that will work best to improve the chances of her Kickstarter campaign succeeding. In our Kickstarter data, the dates provided needed to be converted to the standard format. I then used the YEAR() function to create another column containing only the **Year** of the campaign start date. Once this was done, I created a pivot table in a separate sheet that shows the count of each type of outcome per month. Using the **Date Created Conversion** for the rows, the table is organized by month. Adding filters for **Parent Category** and **Years** allows us to isolate the data for a specific year and/or a specific category.
 
-In this case, we care about the **Theater** category. Filtering for **Theater** only and removing information on "Live" campaigns, creates more specific data relevant to our client. I inserted a Pivot Chart to create the following visual.
+In this case, our client only cares about the **Theater** category. Filtering for **Theater** only and removing information on "Live" campaigns, creates more specific data relevant to our client. I inserted a Pivot Chart to create the following visual.
 
 ![Outcomes Based on Launch Date](https://github.com/ChallahBack83/kickstarter-analysis/blob/main/resources/Theater_Outcomes_vs_Launch.png)
 
@@ -27,24 +27,23 @@ The chart suggests that **Theater** campaigns started in May have the highest ch
 
 ### Analysis of Outcomes Based on Goals
 
-In order to set a realistic campaign goal amount for her Kickstarter, our client needs to understand the rate of success based on the amount of the set goals. After setting up the table below in a separate sheet, we used a COUNTIFS() formula to pull the count of successful, failed, or canceled campaigns for **Plays** based on the given conditions:
-
-    - Goal Amount (i.e. "Less Than 1000")
-    - Outcome (Successful, Failed, or Canceled)
-    - Subcategory (plays)
+In order to set a realistic campaign goal amount for her Kickstarter, our client needs to understand the rate of success based on the amount of the set goals. After setting up the table below in a separate sheet, I used a COUNTIFS() formula to pull the count of successful, failed, or canceled campaigns for **Plays** based on the given conditions:
+    * Goal Amount (i.e. "Less Than 1000")
+    * Outcome (Successful, Failed, or Canceled)
+    * Subcategory (plays)
 
 ![Outcomes_vs_Goals Table](https://github.com/ChallahBack83/kickstarter-analysis/blob/main/resources/Outcomes_Goals_Table.png)
 
-To create this count, we needed to pull information from 3 different columns on the Kickstarter sheet: **D**, **F**, and **R**. On top of that, for most of our categories, **D** (Goal), required two conditions since we were pulling from a range between two numbers.  Most of the formulas looked like:
+To create this count, I pulled information from 3 different columns on the Kickstarter sheet: **D**, **F**, and **R**. On top of that, for all but the first and last Goal ranges, **D** (Goal), required two conditions to create a range between numbers.  Most of the formulas looked similiar to this:
 
 ```
 =COUNTIFS(Kickstarter!$D:$D, ">=1000",Kickstarter!$D:$D, "<=4999", Kickstarter!$F:$F, "successful", Kickstarter!$R:$R, "plays")
 ```
-I used $ to create absolutes in order to copy the formulas in the table. I could then edit within the formula and retype less to reduce the chance of errors. Once these counts were gathered, I could generate percentages based on these goals and create the following chart.
+I used $ to lock the columns in the formula in order to copy it in the table. I could then edit within the formula and retype less to reduce the chance of errors. Once these counts were gathered, I could generate percentages based on these goals and create the following chart.
 
 ![Outcomes_vs_Goals](https://github.com/ChallahBack83/kickstarter-analysis/blob/main/resources/Outcomes_vs_Goals.png)
 
-This chart suggests that campaigns with goals of no more than $4999 are the most likely to be fully funded.
+This chart suggests that campaigns with goals of no more than $4999 are the most likely to be fully funded.  However, the chart can be misleading since the higher goals have less total projects, so a high percentage of success within that range is not the same as the lower goals. See the 67% success in **35000 to 39999** and **40000 to 49999**.
 
 ### Challenges and Difficulties Encountered
 
@@ -63,7 +62,7 @@ Second, the COUNTIFS formula is long and requires a lot of different conditions 
 - What can you conclude about the Outcomes based on Goals?
     
     - Kickstarter campaigns for plays with goals of no more than $4999 have a higher chance of being fully funded.
-        - Therefore, if our client sets a goal of no more than $4999, her campaign has a better chance of succeeding.
+       -Therefore, if our client sets a goal of no more than $4999, her campaign has a better chance of succeeding.
 
 - What are some limitations of this dataset?
 
