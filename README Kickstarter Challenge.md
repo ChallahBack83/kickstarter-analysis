@@ -28,9 +28,10 @@ The chart suggests that **Theater** campaigns started in May have the highest ch
 ### Analysis of Outcomes Based on Goals
 
 In order to set a realistic campaign goal amount for her Kickstarter, our client needs to understand the rate of success based on the amount of the set goals. After setting up the table below in a separate sheet, I used a COUNTIFS() formula to pull the count of successful, failed, or canceled campaigns for **Plays** based on the given conditions:
-    * Goal Amount (i.e. "Less Than 1000")
-    * Outcome (Successful, Failed, or Canceled)
-    * Subcategory (plays)
+
+   - Goal Amount (i.e. "Less Than 1000")
+   - Outcome (Successful, Failed, or Canceled)
+   - Subcategory (plays)
 
 ![Outcomes_vs_Goals Table](https://github.com/ChallahBack83/kickstarter-analysis/blob/main/resources/Outcomes_Goals_Table.png)
 
